@@ -17,11 +17,15 @@
             "request": "launch",
             "program": "cipceek.py",
             "console": "integratedTerminal",
+            "envFile": "${workspaceFolder}/.env",
             "args": [
                 "scrape",
                 "-i",
-                "patents"
+                "patents",
+                "-r",
+                "${workspaceFolder}/output"
             ]
         }
+        
     ]
 }

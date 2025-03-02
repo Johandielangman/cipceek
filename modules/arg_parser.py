@@ -11,14 +11,23 @@
 # =============== // STANDARD IMPORTS // ===============
 
 import argparse
-import os
 import pathlib
+import time
+import os
+
+# =============== // CUSTOM IMPORTS // ===============
+
+from ulid import ULID
 
 # =============== // MODULE IMPORTS // ===============
 
 import constants as c
 
 # =============== // UTILS // ===============
+
+
+def get_ulid() -> str:
+    return str(ULID.from_timestamp(time.time()))
 
 
 def get_banner(
@@ -71,6 +80,28 @@ def add_scrape_subparser(subparsers: argparse._SubParsersAction):
         help='Which intellectual property to scrape',
         required=True
     )
+    add_cipc_arguments(parser)
+    add_folder_arguments(parser)
+    parser.set_defaults(command='scrape')
+
+
+# =============== // GENERAL ARGUMENTS // ===============
+
+def add_cipc_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        '-u',
+        '--username',
+        help='CIPC search username',
+        type=str,
+        default=os.getenv("CIPC_USERNAME")
+    )
+    parser.add_argument(
+        '-p',
+        '--password',
+        help='CIPC search password',
+        type=str,
+        default=os.getenv("CIPC_PASSWORD")
+    )
     parser.add_argument(
         '-c',
         '--config',
@@ -78,4 +109,20 @@ def add_scrape_subparser(subparsers: argparse._SubParsersAction):
         type=pathlib.Path,
         default=(c.CONFIG_DIR / "default.toml")
     )
-    parser.set_defaults(command='scrape')
+
+
+def add_folder_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        '-t',
+        '--tag',
+        help='Give the run a tag name',
+        type=str,
+        default=get_ulid()
+    )
+    parser.add_argument(
+        '-r',
+        '--root-directory',
+        help='The root directory where everything is saved',
+        type=pathlib.Path,
+        default=c.TEMP_DIR
+    )

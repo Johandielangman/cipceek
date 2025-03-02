@@ -1,0 +1,38 @@
+title = "default"
+
+[links]
+root = "https://iponline.cipc.co.za"
+login_path = "/Account/Login.aspx"
+home_path = "/Default.aspx"
+patent_search_path = "/Patents/Search/FreePTSearch.aspx"
+
+[lookup]
+[lookup.login]
+username_input = ["ID", "MainContent_txtUserName"]
+password_input = ["ID", "MainContent_txtPassword"]
+login_button = ["ID", "MainContent_btnLogin"]
+
+[lookup.search.simple]
+simple_search_button = ["ID", "MainContent_btnSelectSimple"]
+advanced_search_button = ["ID", "MainContent_btnSelectAdvanced"]
+application_number_input = ["ID", "MainContent_txtApplicationNumber"]
+search_button = ["ID", "MainContent_btnSimpleSearch"]
+
+
+[lookup.search.advanced]
+simple_search_button = ["ID", "MainContent_btnSelectSimple"]
+advanced_search_button = ["ID", "MainContent_btnSelectAdvanced"]
+application_from_input = ["ID", "MainContent_txtAppNoFrom"]
+application_to_input = ["ID", "MainContent_txtAppNoTo"]
+column_checkboxes = ["ID", "MainContent_chkListCols_{i}"]
+search_button = ["ID", "MainContent_btnAdvancedSearch"]
+
+[lookup.results]
+print_mode_select = ["ID", "MainContent_ddlPrintMode"]
+print_list_button = ["ID", "MainContent_btnDisplayedRegisterList"]
+
+
+[settings]
+implicit_wait_sec = 10
+explicit_wait_sec = 10
+user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"

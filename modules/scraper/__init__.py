@@ -8,6 +8,4 @@
 #
 # ~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~
 
-from modules.arg_parser import parse_args
-import modules.utils as utils
 from modules.scraper.main import Scraper

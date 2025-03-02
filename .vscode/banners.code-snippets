@@ -38,6 +38,29 @@
 			"# =============== // xxxxxxxxxx // ==============="
 		],
 		"description": "A comment header"
+	},
+	"Comment Header - Standard": {
+		"scope": "python",
+		"prefix": "header_standard",
+		"body": [
+			"# =============== // STANDARD IMPORTS // ==============="
+		],
+		"description": "A comment header"
+	},
+	"Comment Header - custom": {
+		"scope": "python",
+		"prefix": "header_custom",
+		"body": [
+			"# =============== // CUSTOM IMPORTS // ==============="
+		],
+		"description": "A comment header"
+	},
+	"Comment Sstep": {
+		"scope": "python",
+		"prefix": "step",
+		"body": [
+			"# ====> "
+		],
+		"description": "A comment step"
 	}
-	
 }

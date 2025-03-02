@@ -71,5 +71,4 @@ if __name__ == "__main__":
     # =============== // FILE WRITE // ===============
 
     print(f"Bumping version from {__version__} to {new_version}")
-    with open(VERSION_FILE_PATH, "w") as f:
-        f.write(f'__version__ = "{new_version}"\n')
+    VERSION_FILE_PATH.write_text(f'__version__ = "{new_version}"\n')
