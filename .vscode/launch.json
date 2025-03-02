@@ -10,6 +10,18 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Scrape Patents",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "cipceek.py",
+            "console": "integratedTerminal",
+            "args": [
+                "scrape",
+                "-i",
+                "patents"
+            ]
         }
     ]
 }
