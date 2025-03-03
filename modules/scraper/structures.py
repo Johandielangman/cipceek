@@ -50,6 +50,7 @@ class AdvancedSearchLookup(BaseModel):
     application_to_input: List[str]
     column_checkboxes: List[str]
     search_button: List[str]
+    error_message: List[str]
 
 
 class SimpleSearchLookup(BaseModel):

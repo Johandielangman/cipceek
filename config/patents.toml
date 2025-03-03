@@ -26,6 +26,7 @@ application_from_input = ["ID", "MainContent_txtAppNoFrom"]
 application_to_input = ["ID", "MainContent_txtAppNoTo"]
 column_checkboxes = ["ID", "MainContent_chkListCols_{i}"]
 search_button = ["ID", "MainContent_btnAdvancedSearch"]
+error_message = ["ID", "MainContent_lblAdvancedErrorMessage"]
 
 [lookup.results]
 print_mode_select = ["ID", "MainContent_ddlPrintMode"]

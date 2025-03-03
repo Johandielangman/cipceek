@@ -80,6 +80,14 @@ def add_scrape_subparser(subparsers: argparse._SubParsersAction):
         help='Which intellectual property to scrape',
         required=True
     )
+    parser.add_argument(
+        '-y',
+        '--years',
+        help='Which years to scrape',
+        type=int,
+        nargs='+',
+        required=True
+    )
     add_cipc_arguments(parser)
     add_folder_arguments(parser)
     parser.set_defaults(command='scrape')
@@ -101,13 +109,6 @@ def add_cipc_arguments(parser: argparse.ArgumentParser) -> None:
         help='CIPC search password',
         type=str,
         default=os.getenv("CIPC_PASSWORD")
-    )
-    parser.add_argument(
-        '-c',
-        '--config',
-        help='Path to the scraper.toml config file',
-        type=pathlib.Path,
-        default=(c.CONFIG_DIR / "default.toml")
     )
 
 

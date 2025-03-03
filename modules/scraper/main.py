@@ -92,8 +92,15 @@ class Scraper(
     def run_flow(
         self
     ) -> None:
-        self.login()
-        self.go_to_advanced()
-        self.download_excel()
-        time.sleep(30)
+        if self.args.intellectual_property == "patents":
+            for year in self.args.years:
+                logger.info(f"Scraping {year}...")
+                self.login()
+                self.advanced_patent_search(year)
+                if self.is_patent_search_results():
+                    self.download_patent_excel(year)
+                else:
+                    logger.warning(f"No results found! Skipping {year}")
+        logger.debug("Done! 🚀")
+        time.sleep(5)
         return

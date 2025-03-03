@@ -13,6 +13,7 @@
 
 import pathlib
 import argparse
+import datetime
 
 # =============== // CUSTOM IMPORTS // ===============
 
@@ -43,6 +44,12 @@ if __name__ == "__main__":
     if os.name != 'nt':
         logger.error("This application can only run in Windows")
         exit(1)
+
+    if (
+        len(args.years) == 1 and
+        args.years[0] == 0
+    ):
+        args.years = list(range(1955, datetime.datetime.now().year + 1))
 
     # =============== // DETERMINE WHAT TO RUN // ===============
 

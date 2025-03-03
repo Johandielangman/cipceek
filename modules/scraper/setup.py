@@ -14,6 +14,7 @@ import os
 import re
 import argparse
 import tomllib
+import pathlib
 
 # =============== // CUSTOM IMPORTS // ===============
 
@@ -26,6 +27,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 # =============== // MODULE IMPORTS // ===============
 
 import modules.utils as utils
+import constants as c
 import modules.scraper.structures as dc
 utils.setup_logger(logger)
 
@@ -75,9 +77,17 @@ class Setup:
         options = webdriver.ChromeOptions()
         options.add_argument(f'user-agent={self.config.settings.user_agent}')
         options.add_argument('--log-level=3')
+        options.add_argument("--headless=new")
+        options.add_experimental_option(
+            "prefs", {
+                "download.default_directory": str(self.args.root_directory / self.args.tag),
+                "savefile.default_directory": str(self.args.root_directory / self.args.tag)
+            }
+        )
         options.add_experimental_option('excludeSwitches', ['enable-logging'])
         return options
 
     def load_config(self) -> dc.Config:
-        data: dict = tomllib.loads(self.args.config.read_text())
+        config_path: pathlib.Path = pathlib.Path(c.CONFIG_DIR) / f"{self.args.intellectual_property}.toml"
+        data: dict = tomllib.loads(config_path.read_text())
         return dc.Config(**data)

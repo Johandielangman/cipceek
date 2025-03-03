@@ -23,7 +23,9 @@
                 "-i",
                 "patents",
                 "-r",
-                "${workspaceFolder}/output"
+                "${workspaceFolder}/output",
+                "--year",
+                "0"
             ]
         }
         

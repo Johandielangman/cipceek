@@ -3,6 +3,7 @@
         "chromedriver",
         "cipc",
         "cipceek",
+        "crdownload",
         "webelement"
     ]
 }
